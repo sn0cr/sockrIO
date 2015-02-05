@@ -1,0 +1,17 @@
+{
+  "name": "rpcClient",
+  "version": "0.0.1",
+  "description": "A websocket client for socket.io with rpc",
+  "main": "index.coffee",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sn0cr",
+  "license": "MIT",
+  "dependencies": {
+    "coffee-script": "^1.9.0",
+    "eventemitter2": "^0.4.14",
+    "request": "^2.53.0",
+    "ws": "^0.7.1"
+  }
+}

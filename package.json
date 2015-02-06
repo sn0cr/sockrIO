@@ -2,7 +2,7 @@
   "name": "rpcClient",
   "version": "0.0.2",
   "description": "A websocket client for socket.io with rpc",
-  "main": "index.coffee",
+  "main": "./lib/RPCClient.coffee",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/sn0cr/sockrIO.git"
   },
-  "author": "Sn0cr",
+  "author": "C.Wahl",
   "license": "MIT",
   "dependencies": {
     "coffee-script": "^1.9.0",

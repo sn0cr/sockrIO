@@ -1,6 +1,6 @@
 Client = require './lib/RPCClient'
 port = 3000
-host = "    "
+host = "localhost"
 
 c = new Client(host, port)
 c.call "method", ["funny", "yo!"], (d) ->

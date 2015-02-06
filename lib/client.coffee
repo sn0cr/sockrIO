@@ -19,8 +19,12 @@ module.exports = class Client
       socket_io_url = "ws://#{host}:#{port}/socket.io/1/websocket/#{token}"
       @ws = new WebSocket(socket_io_url)
       @ws.on 'open', => cl @
-      @ws.on 'close', -> process.exit()
+      @ws.on 'close', -> console.log "ws closed"
       @ws.on 'message', (data, flags) =>
+        # send ping back (around every 25secs)
+        if data is "2::"
+          @ws.send "2::"
+          return
         dataCounter = /6:::(\d+)+/.exec(data)
         if dataCounter? and @callBacks.hasOwnProperty(dataCounter[1])
           data = new JSONResponse(data)
@@ -34,7 +38,8 @@ module.exports = class Client
           data = new Data(data)
           if data.isMessage()
             @eventEmitter.emit(data.channel, data.getData()...)
-
+  sendKeepAlive: =>
+    @ws.send
   close: =>
     @ws?.close()
   getToken: (url, cl) ->
@@ -44,7 +49,7 @@ module.exports = class Client
         if body?
           cl body.split(":")[0]
         else
-          console.log "Got nothing"
+          console.warn "Got no token - is your socket.io server running?"
 
   send: (channel, data, cl) =>
     prefix = "5:#{@counter}+::"

@@ -1,7 +1,7 @@
-# A 'better' :smile: for socket.io - the original client didn't work for me
+# A 'better' :smile: for a json rpc over socket.io - the original client didn't work for me
 -----------------------------------------
 ```coffeescript
-Client = require './lib/RPCClient'
+Client = require 'rpcClient'
 port = 3000
 host = "localhost"
 

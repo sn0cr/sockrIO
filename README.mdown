@@ -1,4 +1,4 @@
-# A 'better' :smile: for a json rpc over socket.io - the original client didn't work for me
+# A 'better' client :smile: for a json rpc over socket.io - the original client didn't work for me (for socket.io)
 =======
 # Install:
 ``` console
